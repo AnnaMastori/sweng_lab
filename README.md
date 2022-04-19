@@ -1,1 +1,2 @@
 # sweng_lab
+This project contains modules that are lab assignments for the SEIP course. The first assignment is the gradeshistogram project which creates a frequency chart from a given txt file that contains grades. 
