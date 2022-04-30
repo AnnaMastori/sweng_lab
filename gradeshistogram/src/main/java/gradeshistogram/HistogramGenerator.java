@@ -3,6 +3,8 @@ package gradeshistogram;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 import org.jfree.chart.ChartFactory;
@@ -12,7 +14,8 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
-/**This class generates a histogram chart from a given txt file that contains grades.
+/**
+ * This class generates a histogram chart from a given txt file that contains grades.
  * @author annamastori
  *
  */
@@ -22,12 +25,13 @@ public class HistogramGenerator {
 	public static void main(String args[]) {
 		// takes the grades from the txt file
 		ArrayList<Integer> list = readFile(args[0]);
-		generateChart(list);
+		int[] array=createFrequencyArray(list);
+		generateChart(array);
 	}
 
 	/**
 	 * Receives the path to the grades.txt file. From the file an ArrayList is
-	 * created with the grades it conatins.
+	 * created with the grades it contains.
 	 * 
 	 * @param filepath
 	 * @return ArrayList of Integers
@@ -52,15 +56,31 @@ public class HistogramGenerator {
 
 	}
 
+	/**
+	 * Receives a list of Integers and produces a frequency array.
+	 * @param Integer list
+	 * @return int array with frequencies
+	 */
+	public static int[] createFrequencyArray(ArrayList<Integer> list) {
+
+		Collections.sort(list);
+		int max = list.get(list.size() - 1);
+		int array[] = new int[max + 1];
+		for (Integer i : list) {
+			array[i]++;
+		}
+		return array;
+	}
+
 	/***
 	 * Receives a single dimension Integer ArrayList. From this array the dataset
 	 * that will be used for the visualization is generated. Finally, The chart is
 	 * generated with the use of the aforementioned dataset and then presented in
 	 * the screen.
 	 * 
-	 * @param dataValues ArrayList of Integers
+	 * @param dataValues array of ints
 	 */
-	public static void generateChart(ArrayList<Integer> dataValues) {
+	public static void generateChart(int[] dataValues) {
 		/*
 		 * The XYSeriesCollection object is a set XYSeries series (dataset) that can be
 		 * visualized in the same chart
@@ -75,8 +95,8 @@ public class HistogramGenerator {
 		/*
 		 * Populating the XYSeries data object from the input Integer array values.
 		 */
-		for (int i = 0; i < dataValues.size(); i++) {
-			data.add(i, dataValues.get(i));
+		for (int i = 0; i < dataValues.length; i++) {
+			data.add(i, dataValues[i]);
 		}
 
 		// add the series to the dataset
@@ -89,7 +109,7 @@ public class HistogramGenerator {
 		// Declare and initialize a createXYLineChart JFreeChart
 		JFreeChart chart = ChartFactory.createXYLineChart("Grades Histogram", "Grades", "Frequency", dataset,
 				PlotOrientation.VERTICAL, legend, tooltips, urls);
-
+		
 		/*
 		 * Initialize a frame for visualizing the chart and attach the previously
 		 * created chart.
