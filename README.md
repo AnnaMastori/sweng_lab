@@ -6,6 +6,8 @@ This repository consists of a parent Maven project and one sub-project (module).
 
 1) [Grades Histogram](gradeshistogram) - creates a histogram from a given set of grades
 
+2) [Unit testing](unittesting/README.md) - does math operations and has the unit tests
+
 Execute the following command in the repository root directory in order to build all modules. 
 ```
 mvn package
