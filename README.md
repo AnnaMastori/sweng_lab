@@ -1,6 +1,9 @@
 # sweng_lab
 This project contains modules that are part of the lab assignments for the SEIP course. 
 
+![Build Status](https://github.com/AnnaMastori/sweng_lab/actions/workflows/Java CI with Maven/badge.svg)
+
+
 ## Project Structure
 This repository consists of a parent Maven project and one sub-project (module).
 
