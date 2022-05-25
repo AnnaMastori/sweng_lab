@@ -19,7 +19,7 @@ import java.util.List;
 public class FileIO {
 
 	/**
-	 * Reads a file that contains numbers line by line and returns an array of the
+	 * Reads a file that contains any type of data line by line and returns an array of the
 	 * integers found in the file.
 	 * 
 	 * @param filepath the file that contains the numbers
