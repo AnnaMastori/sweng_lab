@@ -46,7 +46,7 @@ public class FileIO {
 					number = Integer.parseInt(line);
 					numbersList.add(number);
 				} catch (NumberFormatException e) {
-					System.out.println("bla");
+				
 				}
 
 			}
