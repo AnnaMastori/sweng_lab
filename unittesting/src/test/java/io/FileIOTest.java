@@ -11,7 +11,7 @@ import math.ArithmeticOperations;
 public class FileIOTest {
 
 	static FileIO testClass;
-	static int nums[] = {1,2,3,4,5};
+	static int nums[] = { 1, 2, 3, 4, 5 };
 
 	@BeforeClass
 	public static void setup() {
@@ -20,24 +20,30 @@ public class FileIOTest {
 
 	@Test
 	public void test_readFile() {
-		int[] nums= {1,2,3,4,5};
+		int[] nums = { 1, 2, 3, 4, 5 };
 		Assert.assertArrayEquals(nums, testClass.readFile("../unittesting/src/test/resources/io/testnums.txt"));
 	}
-	
+
 	@Rule
 	public ExpectedException expectedEx = ExpectedException.none();
 
 	@Test
 	public void shouldThrowIllegalArgumentExceptionFileNotEXist() {
-	    expectedEx.expect(IllegalArgumentException.class);
-	    expectedEx.expectMessage("Input file does not exist");
-	    testClass.readFile("../unittesting/src/test/resources/io/abcdoesnotexist.txt");
+		expectedEx.expect(IllegalArgumentException.class);
+		expectedEx.expectMessage("Input file does not exist");
+		testClass.readFile("../unittesting/src/test/resources/io/abcdoesnotexist.txt");
 	}
-	
+
 	@Test
 	public void shouldThrowIllegalArgumentExceptionEmptyFile() {
-	    expectedEx.expect(IllegalArgumentException.class);
-	    expectedEx.expectMessage("Given file is empty");
-	    testClass.readFile("../unittesting/src/test/resources/io/emptyfile.txt");
+		expectedEx.expect(IllegalArgumentException.class);
+		expectedEx.expectMessage("Given file is empty");
+		testClass.readFile("../unittesting/src/test/resources/io/emptyfile.txt");
+	}
+
+	@Test
+	public void testReadFileContainsInvalidEntries() {
+		Assert.assertArrayEquals(nums,
+				testClass.readFile("../unittesting/src/test/resources/io/testnumsvarioustypes.txt"));
 	}
 }
