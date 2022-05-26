@@ -34,8 +34,8 @@ public class MyMathTest {
 	}
 	
 	@Test(expected = IllegalArgumentException.class )
-	public void test_isPrime_IllegalArgument() {
-		Assert.assertEquals(false, testClass.isPrime(1));
+	public void test_isPrime_IllegalArgumentSmallerThanTwo() {
+		testClass.isPrime(1);
 	}
 
 }
