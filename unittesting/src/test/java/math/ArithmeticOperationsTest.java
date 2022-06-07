@@ -64,11 +64,24 @@ public class ArithmeticOperationsTest {
 	}
 	
 	@Test
-	public void shouldThrowIllegalArgumentExceptionNegatives() {
+	public void shouldThrowIllegalArgumentExceptionNegativeFirst() {
 	    expectedEx.expect(IllegalArgumentException.class);
 	    expectedEx.expectMessage("x & y should be >= 0");
 	    testClass.multiply(-1, 2);
 	}
 	
+	@Test
+	public void shouldThrowIllegalArgumentExceptionNegativeSecond() {
+	    expectedEx.expect(IllegalArgumentException.class);
+	    expectedEx.expectMessage("x & y should be >= 0");
+	    testClass.multiply(2, -1);
+	}
+	
+	@Test
+	public void shouldThrowIllegalArgumentExceptionNegativeBothInputs() {
+	    expectedEx.expect(IllegalArgumentException.class);
+	    expectedEx.expectMessage("x & y should be >= 0");
+	    testClass.multiply(-2, -1);
+	}
 
 }
