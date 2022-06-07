@@ -48,6 +48,11 @@ public class ArithmeticOperationsTest {
 		Assert.assertEquals(0.0, testClass.multiply(0, 4), DELTA);
 	}
 	
+	@Test
+	public void test_multiply_first_input_with_zero() {
+		Assert.assertEquals(0.0, testClass.multiply(5, 0), DELTA);
+	}
+	
 	@Rule
 	public ExpectedException expectedEx = ExpectedException.none();
 
