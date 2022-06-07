@@ -34,6 +34,11 @@ public class ArithmeticOperationsTest {
 	}
 	
 	@Test
+	public void test_divide_zero_numerator() {
+		Assert.assertEquals(0, testClass.divide(0, 4), DELTA);
+	}
+	
+	@Test
 	public void test_multiply() {
 		Assert.assertEquals(20, testClass.multiply(5, 4), DELTA);
 	}
