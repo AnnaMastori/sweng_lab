@@ -1,7 +1,7 @@
 package codeanalyzer;
 
 /**
- * This is the factory for the SourceCodeAnalyser.
+ * This is the factory for the SourceCodeAnalyser interface.
  * 
  * @author annamastori
  *
@@ -9,7 +9,7 @@ package codeanalyzer;
 public class SourceCodeAnalyserFactory {
 
 	/**
-	 * Creates appropriates SourceCodeAnalyser.
+	 * Creates the appropriate SourceCodeAnalyser.
 	 * 
 	 * @param analysisType the type of analysis
 	 * @param fileReader   the SourceFileReader that will read the file
@@ -20,8 +20,10 @@ public class SourceCodeAnalyserFactory {
 		SourceCodeAnalyzer an;
 		if (analysisType.equals("regex")) {
 			an = new RegexAnalyzer(fileReader);
-		} else {
+		} else if (analysisType.equals("strcomp")) {
 			an = new StrcompAnalyzer(fileReader);
+		} else {
+			an = new NullSourceCodeAnalyser();
 		}
 		return an;
 	}
