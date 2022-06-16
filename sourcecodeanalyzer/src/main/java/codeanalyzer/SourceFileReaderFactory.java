@@ -18,8 +18,10 @@ public class SourceFileReaderFactory {
 		SourceFileReader sfr;
 		if (readerType.equals("web")) {
 			sfr = new WebFileReader();
-		} else {
+		} else if (readerType.equals("local")){
 			sfr = new LocalFileReader();
+		}else {
+			sfr = new NullFileReader();
 		}
 		return sfr;
 	}
