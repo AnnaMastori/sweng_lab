@@ -16,6 +16,7 @@ public class NullSourceCodeAnalyser implements SourceCodeAnalyzer {
 	 */	
 	@Override
 	public int calculateLOC(String filepath) throws IOException {
+		System.err.print("Operation aborted due to unknown analyzer type.\n");
 		return -1;
 	}
 	
@@ -26,6 +27,7 @@ public class NullSourceCodeAnalyser implements SourceCodeAnalyzer {
 	 */	
 	@Override
 	public int calculateNOM(String filepath) throws IOException {
+		System.err.print("Operation aborted due to unknown analyzer type.\n");
 		return -1;
 	}
 	
@@ -36,6 +38,7 @@ public class NullSourceCodeAnalyser implements SourceCodeAnalyzer {
 	 */	
 	@Override
 	public int calculateNOC(String filepath) throws IOException {
+		System.err.print("Operation aborted due to unknown analyzer type.\n");
 		return -1;
 	}
 
