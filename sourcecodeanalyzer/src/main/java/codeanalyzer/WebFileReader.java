@@ -42,8 +42,8 @@ public class WebFileReader implements SourceFileReader {
 	@Override
 	public List<String> readFileIntoList(String filepath) throws IOException {
 		List<String> lines = new ArrayList<>();
-		File file = new File(filepath);
-		BufferedReader reader = new BufferedReader(new FileReader(file));
+		URL url = new URL(filepath);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
 		String line = null;
 		while ((line = reader.readLine()) != null) {
 			lines.add(line);
