@@ -66,7 +66,7 @@ To redesign the system based on the SOLID principles, the following design patte
 
 
 The class diagram of the final version of the system is displayed below 
-![Class Diagram](src\main\resources\UMLclass.png)
+![Class Diagram](src/main/resources/UMLclass.png)
 
 ---
 
