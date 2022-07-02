@@ -11,6 +11,8 @@ This repository consists of a parent Maven project and one sub-project (module).
 
 2) [Unit testing](unittesting/README.md) - does math operations and has the unit tests
 
+3) [Source Code Analysis](sourcecodeanalyzer/README.md) - calculates metrics (e.g Loc) of a given file
+
 Execute the following command in the repository root directory in order to build all modules. 
 ```
 mvn package
